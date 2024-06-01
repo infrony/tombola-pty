@@ -10,10 +10,8 @@ const serviceAccountAuth = new JWT({
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
-const doc = new GoogleSpreadsheet(
-  process.env.GOOGLE_SHEET_ID!,
-  serviceAccountAuth
-);
+const spreadsheetId = process.env.GOOGLE_SPREADSHEET_ID!;
+const doc = new GoogleSpreadsheet(spreadsheetId, serviceAccountAuth);
 
 const accessSpreadsheet = async () => {
   await doc.loadInfo();
