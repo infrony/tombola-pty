@@ -2,6 +2,8 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Confetti from 'react-confetti';
+import { Zoom } from 'react-awesome-reveal';
 
 export default function Home() {
   const [nombre, setNombre] = useState('');
@@ -16,6 +18,7 @@ export default function Home() {
   const [winner, setWinner] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,6 +70,9 @@ export default function Home() {
     const res = await fetch('/api/winner');
     const data = await res.json();
     setWinner(data.winner);
+    setDisabled(true);
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 15000);
   };
 
   const calculateTimeLeft = (timeDifference: number) => {
@@ -81,6 +87,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      {showConfetti && <Confetti />}
       <div className="relative flex flex-col items-center justify-center w-full max-w-md">
         <h1 className="text-3xl font-bold mb-4">Tómbola PTY</h1>
         <form onSubmit={handleSubmit} className="w-full max-w-sm">
@@ -150,8 +157,10 @@ export default function Home() {
           </p>
           {winner && (
             <div className="mt-4">
-              <h2 className="text-2xl">Ganador:</h2>
-              <p className="text-xl font-bold">{winner}</p>
+              <Zoom>
+                <h2 className="text-2xl">Ganador:</h2>
+                <p className="text-xl font-bold zoom-in-out-box">{winner}</p>
+              </Zoom>
             </div>
           )}
         </div>
