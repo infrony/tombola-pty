@@ -29,5 +29,6 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+    text-shadow: 0.5 0 0 rgb(var(--foreground-rgb));
   }
 }

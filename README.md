@@ -1,4 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## About the project development
+
+Working with Next.js + Google Sheet API
+
+## Configure Google Cloud Console
+- Add new project in your organization
+
+    ![image](https://drive.google.com/uc?export=view&id=1W9HmjfAxNntJXWoe9qYD1D3GEBjiuwEE)
+
+- Add Google Sheet API from the API library
+
+    ![image](https://drive.google.com/uc?export=view&id=1BjP_4GKuVr1hh92ZEgH5BZ3C-loJjaUZ)
+
+- Enable it
+
+    ![image](https://drive.google.com/uc?export=view&id=1RhkgodMFDdmWRyU2VM2OG9kfAkZHFtMm)
+
+- Add a service account and add a key to the service account
+- Download de json file
+- Use the GOOGLE_PRIVATE_KEY and the GOOGLE_SERVICE_ACCOUNT_EMAIL in .env
+
+- Create a google sheet and copy ID from google sheet url and save in .env as GOOGLE_SPREADSHEET_ID="Your Sheet ID"
 
 ## Getting Started
 
@@ -34,3 +55,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Comming soon
+
+- Countdown giveaway automated
+- User Registration
+- User Configure a new Sheet ID
