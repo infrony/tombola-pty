@@ -11,7 +11,7 @@ const serviceAccountAuth = new JWT({
 });
 
 const doc = new GoogleSpreadsheet(
-  process.env.GOOGLE_SHEET_ID ?? "",
+  process.env.GOOGLE_SHEET_ID!,
   serviceAccountAuth
 );
 
