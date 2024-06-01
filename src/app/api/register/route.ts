@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import accessSpreadsheet from "../../sheets";
+import accessSpreadsheet from "../../lib/sheets";
 
 export async function POST(req: NextRequest) {
   const { nombre, numero } = await req.json();
