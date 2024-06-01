@@ -7,24 +7,38 @@ export async function POST(req: NextRequest) {
 
   if (!nombre || !numero) {
     return NextResponse.json(
-      { message: "Nombre y número son requeridos" },
+      { message: "El nombre y número son requeridos" },
       { status: 400 }
     );
   }
 
   if (numero < 1 || numero > 99) {
     return NextResponse.json(
-      { message: "Número debe estar entre 1 y 99" },
+      { message: "El número debe estar entre 1 y 99" },
       { status: 400 }
     );
   }
 
   try {
     const sheet = await accessSpreadsheet();
-    const rows = await sheet.getCellsInRange("A2:B100");
+    const rows = await sheet.getRows();
+
+    if (rows.length === 0) {
+      return NextResponse.json(
+        { message: "No hay participantes" },
+        { status: 404 }
+      );
+    }
+
+    if (rows.length === 99) {
+      return NextResponse.json(
+        { message: "Todos los números han sido elegidos" },
+        { status: 404 }
+      );
+    }
 
     const numeroExistente = rows.some(
-      (row: any) => row[1] === numero.toString()
+      (row: any) => row.get("Numero") === numero.toString()
     );
 
     if (numeroExistente) {

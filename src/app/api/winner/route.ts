@@ -21,20 +21,6 @@ export async function GET() {
       );
     }
 
-    if (rows.length === 0) {
-      return NextResponse.json(
-        { message: "No hay participantes" },
-        { status: 404 }
-      );
-    }
-
-    if (rows.length === 99) {
-      return NextResponse.json(
-        { message: "Todos los números han sido elegidos" },
-        { status: 404 }
-      );
-    }
-
     const randomIndex = Math.floor(Math.random() * rows.length);
     const winnerRow = rows[randomIndex];
     winnerRow.set("Ganador", "true");

@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
 import { Zoom } from 'react-awesome-reveal';
+import NumberGrid from './components/NumberGrid';
 
 export default function Home() {
   const [nombre, setNombre] = useState('');
@@ -97,6 +98,7 @@ export default function Home() {
               placeholder="Nombre y Apellido"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
+              max={50}
               required
               disabled={disabled}
               className="w-full px-3 py-2 border border-gray-300 rounded-md text-black"
@@ -163,6 +165,10 @@ export default function Home() {
               </Zoom>
             </div>
           )}
+        </div>
+        <div className="mt-4 text-center">
+          <h2 className="text-2xl">Números disponibles en <span className="text-green-600">▉</span></h2>
+          <NumberGrid />
         </div>
       </div>
       <footer className="w-full text-center mt-8">
