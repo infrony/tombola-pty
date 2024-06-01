@@ -167,7 +167,7 @@ export default function Home() {
           )}
         </div>
         <div className="mt-4 text-center">
-          <h2 className="text-2xl">Números disponibles en <span className="text-green-600">●</span></h2>
+          <h2 className="text-lg">Números disponibles en <span className="text-green-600 text-xl">●</span></h2>
           <NumberGrid />
         </div>
       </div>
