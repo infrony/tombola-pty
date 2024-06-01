@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="relative flex flex-col items-center justify-center w-full max-w-md">
-        <h1 className="text-4xl font-bold mb-4">Tómbola PTY</h1>
+        <h1 className="text-3xl font-bold mb-4">Tómbola PTY</h1>
         <form onSubmit={handleSubmit} className="w-full max-w-sm">
           <div className="mb-4">
             <input
