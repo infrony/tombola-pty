@@ -36,7 +36,6 @@ export async function POST(req: NextRequest) {
     await sheet.addRow({ Nombre: nombre, Numero: numero });
     return NextResponse.json({ message: "Registro exitoso" }, { status: 200 });
   } catch (error) {
-    console.error("Error al acceder a la hoja de cálculo:", error);
     return NextResponse.json(
       {
         message: "Error al acceder a la hoja de cálculo",
