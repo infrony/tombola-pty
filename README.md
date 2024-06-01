@@ -61,3 +61,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Countdown giveaway automated
 - User Registration
 - User Configure a new Sheet ID
+- Site Translations
+
+## License
+
+MIT: [https://infrony.mit-license.org](https://infrony.mit-license.org/).
