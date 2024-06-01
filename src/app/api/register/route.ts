@@ -1,3 +1,4 @@
+// src/app/api/register/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import accessSpreadsheet from "../../lib/sheets";
 
