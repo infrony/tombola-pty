@@ -13,9 +13,7 @@ export async function GET() {
     if (ganadorExistente) {
       return NextResponse.json(
         {
-          winner: `${ganadorExistente.get(
-            "Nombre"
-          )} con el Número: (${ganadorExistente.get("Numero")})`,
+          winner: `${ganadorExistente.get("Nombre")}`,
         },
         { status: 200 }
       );
@@ -26,11 +24,7 @@ export async function GET() {
     winnerRow.set("Ganador", "true");
     await winnerRow.save();
 
-    const winner =
-      winnerRow.get("Nombre") +
-      " con el Número: (" +
-      winnerRow.get("Numero") +
-      ")";
+    const winner = winnerRow.get("Nombre");
 
     return NextResponse.json({ winner }, { status: 200 });
   } catch (error) {

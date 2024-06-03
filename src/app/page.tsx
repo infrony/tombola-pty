@@ -4,11 +4,11 @@
 import { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
 import { Zoom } from 'react-awesome-reveal';
-import NumberGrid from './components/NumberGrid';
+// import NumberGrid from './components/NumberGrid';
 
 export default function Home() {
   const [nombre, setNombre] = useState('');
-  const [numero, setNumero] = useState('');
+  const [celular, setCelular] = useState('');
   const [mensaje, setMensaje] = useState('');
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -31,7 +31,7 @@ export default function Home() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ nombre, numero }),
+      body: JSON.stringify({ nombre, celular }),
     });
 
     const data = await res.json();
@@ -41,7 +41,7 @@ export default function Home() {
 
     if (res.status === 200) {
       setNombre('');
-      setNumero('');
+      setCelular('');
     }
   };
 
@@ -106,10 +106,10 @@ export default function Home() {
           </div>
           <div className="mb-4">
             <input
-              type="number"
-              placeholder="Número (1-99)"
-              value={numero}
-              onChange={(e) => setNumero(e.target.value)}
+              type="celular"
+              placeholder="Celular (ej. 6212-3456)"
+              value={celular}
+              onChange={(e) => setCelular(e.target.value)}
               required
               disabled={disabled}
               className="w-full px-3 py-2 border border-gray-300 rounded-md text-black"
@@ -166,10 +166,10 @@ export default function Home() {
             </div>
           )}
         </div>
-        <div className="mt-4 text-center">
+        {/* <div className="mt-4 text-center">
           <h2 className="text-lg">Números disponibles en <span className="text-green-600 text-xl">●</span></h2>
           <NumberGrid />
-        </div>
+        </div> */}
       </div>
       <footer className="w-full text-center mt-8">
         <p className="text-gray-500">

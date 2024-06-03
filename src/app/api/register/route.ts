@@ -3,18 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 import accessSpreadsheet from "../../lib/sheets";
 
 export async function POST(req: NextRequest) {
-  const { nombre, numero } = await req.json();
+  const { nombre, celular } = await req.json();
 
-  if (!nombre || !numero) {
+  if (!nombre || !celular) {
     return NextResponse.json(
-      { message: "El nombre y número son requeridos" },
-      { status: 400 }
-    );
-  }
-
-  if (numero < 1 || numero > 99) {
-    return NextResponse.json(
-      { message: "El número debe estar entre 1 y 99" },
+      { message: "El nombre y celular son requeridos" },
       { status: 400 }
     );
   }
@@ -23,12 +16,12 @@ export async function POST(req: NextRequest) {
     const sheet = await accessSpreadsheet();
     const rows = await sheet.getRows();
 
-    if (rows.length === 0) {
-      return NextResponse.json(
-        { message: "No hay participantes" },
-        { status: 404 }
-      );
-    }
+    // if (rows.length === 0) {
+    //   return NextResponse.json(
+    //     { message: "No hay participantes" },
+    //     { status: 404 }
+    //   );
+    // }
 
     if (rows.length === 99) {
       return NextResponse.json(
@@ -37,18 +30,18 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const numeroExistente = rows.some(
-      (row: any) => row.get("Numero") === numero.toString()
+    const nombreExistente = rows.some(
+      (row: any) => row.get("Nombre") === nombre.toString()
     );
 
-    if (numeroExistente) {
+    if (nombreExistente) {
       return NextResponse.json(
-        { message: "El número ya ha sido elegido" },
+        { message: "El Nombre ya ha sido elegido" },
         { status: 400 }
       );
     }
 
-    await sheet.addRow({ Nombre: nombre, Numero: numero });
+    await sheet.addRow({ Nombre: nombre, Celular: celular });
     return NextResponse.json({ message: "Registro exitoso" }, { status: 200 });
   } catch (error) {
     return NextResponse.json(
