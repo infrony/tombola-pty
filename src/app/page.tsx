@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react';
 import Confetti from 'react-confetti';
 import { Zoom } from 'react-awesome-reveal';
+import GitHubCorner from 'react-github-corner';
 // import NumberGrid from './components/NumberGrid';
 
 export default function Home() {
@@ -88,6 +89,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <GitHubCorner href="https://github.com/infrony/tombola-pty" />
       {showConfetti && <Confetti />}
       <div className="relative flex flex-col items-center justify-center w-full max-w-md">
         <h1 className="text-3xl font-bold mb-4">Tómbola PTY</h1>
