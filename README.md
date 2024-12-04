@@ -1,19 +1,18 @@
-## About the project development
+# About the project development
 
 Working with Next.js + Google Sheet API
 
 ## Configure Google Cloud Console
+
 - Add new project in your organization
 
-    ![image](https://drive.google.com/uc?export=view&id=1W9HmjfAxNntJXWoe9qYD1D3GEBjiuwEE)
+    [new project](https://console.cloud.google.com/projectcreate)
 
 - Add Google Sheet API from the API library
 
-    ![image](https://drive.google.com/uc?export=view&id=1BjP_4GKuVr1hh92ZEgH5BZ3C-loJjaUZ)
+    [Google Sheet API](https://console.cloud.google.com/apis/library/sheets.googleapis.com)
 
 - Enable it
-
-    ![image](https://drive.google.com/uc?export=view&id=1RhkgodMFDdmWRyU2VM2OG9kfAkZHFtMm)
 
 - Add a service account and add a key to the service account
 - Download de json file
@@ -56,7 +55,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Comming soon
+## Coming soon
 
 - Countdown giveaway automated
 - User Registration
